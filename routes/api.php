@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\DashboardController;
+use App\Http\Controllers\Api\NotificationController;
 use App\Http\Controllers\Api\ProjectController;
 use App\Http\Controllers\Api\TaskController;
 use Illuminate\Http\Request;
@@ -20,6 +21,11 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Dashboard Route
     Route::get('/dashboard', DashboardController::class);
+
+    // Notifications Routes
+    Route::get('/notifications', [NotificationController::class, 'index']);
+    Route::get('/notification/{id}/read', [NotificationController::class, 'markAsRead']);
+    Route::get('/notifications/read-all', [NotificationController::class, 'markAllAsRead']);
 
     // Projects Module Routes
     Route::get('/projects', [ProjectController::class, 'index']);

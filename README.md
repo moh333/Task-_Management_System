@@ -49,9 +49,9 @@ A robust RESTful API built with **Laravel 11**, **PHP 8.3**, **Sanctum Authentic
    APP_ENV=local
    APP_KEY=
    APP_DEBUG=true
-   APP_URL=http://127.0.0.1:8080
+   APP_URL=http://127.0.0.1:8001
 
-   L5_SWAGGER_CONST_HOST=http://127.0.0.1:8080
+   L5_SWAGGER_CONST_HOST=http://127.0.0.1:8001
 
    DB_CONNECTION=mysql
    DB_HOST=127.0.0.1
@@ -91,10 +91,10 @@ Prerequisites: **PHP >= 8.2**, **Composer**, **MySQL**.
 
 5. **Start Local Development Server**
    ```bash
-   php artisan serve --port=8080
+   php artisan serve --port=8001
    ```
 
-   The app will be available at: **http://127.0.0.1:8080/**
+   The app will be available at: **http://127.0.0.1:8001/**
 
 ---
 
@@ -103,7 +103,7 @@ Prerequisites: **PHP >= 8.2**, **Composer**, **MySQL**.
 ### Accessing Swagger UI
 
 Interactive Swagger / OpenAPI UI is accessible directly in your web browser:
-👉 **[http://127.0.0.1:8080/api/documentation](http://127.0.0.1:8080/api/documentation)**
+👉 **[http://127.0.0.1:8001/api/documentation](http://127.0.0.1:8001/api/documentation)**
 
 ### Regenerating API Docs
 
@@ -155,7 +155,7 @@ php artisan l5-swagger:generate
    ```http
    Authorization: Bearer 1|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
    ```
-4. In **Swagger UI** (`http://127.0.0.1:8080/api/documentation`), click the **Authorize** button and enter:
+4. In **Swagger UI** (`http://127.0.0.1:8001/api/documentation`), click the **Authorize** button and enter:
    `Bearer 1|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
 
 ---

@@ -1,6 +1,6 @@
 # Task Management System API
 
-A robust RESTful API built with **Laravel 11**, **PHP 8.3**, **Sanctum Authentication**, **MySQL**, **Redis**, and **Swagger / OpenAPI Documentation**.
+A robust RESTful API built with **Laravel 11**, **PHP 8.3**, **Sanctum Authentication**, **MySQL**, and **Swagger / OpenAPI Documentation**.
 
 ---
 
@@ -180,7 +180,7 @@ To process queued jobs (such as sending overdue task notifications in the backgr
 php artisan queue:work
 ```
 
-> **Note**: If `QUEUE_CONNECTION=sync` in `.env`, jobs are processed synchronously immediately. If set to `database` or `redis`, you must run `php artisan queue:work` to consume queued jobs.
+> **Note**: If `QUEUE_CONNECTION=sync` in `.env`, jobs are processed synchronously immediately. If set to `database`, run `php artisan queue:work` to consume queued jobs.
 
 ### Running the Scheduler
 

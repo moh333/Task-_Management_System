@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\LoginRequest;
-use App\Http\Requests\Api\RegisterRequest;
-use App\Models\User;
+use App\Http\Requests\Api\Auth\LoginRequest;
+use App\Http\Requests\Api\Auth\RegisterRequest;
 use App\Services\AuthService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -31,9 +30,7 @@ class AuthController extends Controller
      */
     public function login(LoginRequest $request): JsonResponse
     {
-        /** @var array{email: string, password: string} $credentials */
         $credentials = $request->validated();
-
         $result = $this->authService->login($credentials);
 
         if (!$result) {
@@ -48,11 +45,8 @@ class AuthController extends Controller
      */
     public function logout(Request $request): JsonResponse
     {
-        /** @var User $user */
         $user = $request->user();
-
         $this->authService->logout($user);
-
         return Response::success(null, 'Logged out successfully', 200);
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\DashboardController;
 use App\Http\Controllers\Api\ProjectController;
 use App\Http\Controllers\Api\TaskController;
 use Illuminate\Http\Request;
@@ -16,6 +17,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
+
+    // Dashboard Route
+    Route::get('/dashboard', DashboardController::class);
+
     // Projects Module Routes
     Route::get('/projects', [ProjectController::class, 'index']);
     Route::post('/project/create', [ProjectController::class, 'store']);

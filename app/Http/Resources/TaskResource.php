@@ -2,15 +2,15 @@
 
 namespace App\Http\Resources;
 
-use App\Models\Project;
+use App\Models\Task;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
- * @mixin Project
+ * @mixin Task
  */
-class ProjectResource extends JsonResource
+class TaskResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -21,11 +21,13 @@ class ProjectResource extends JsonResource
     {
         return [
             'id'          => $this->id,
-            'user_id'     => $this->user_id,
-            'user_name'   => $this->user?->name,
-            'name'        => $this->name,
+            'project_id'  => $this->project_id,
+            'project'     => $this->project?->name,
+            'title'       => $this->title,
             'description' => $this->description,
+            'priority'    => $this->priority,
             'status'      => $this->status,
+            'due_date'    => $this->due_date ? Carbon::parse($this->due_date)->format('Y-m-d') : null,
             'created_at'  => $this->created_at ? Carbon::parse($this->created_at)->format('Y-m-d H:i:s') : null,
             'updated_at'  => $this->updated_at ? Carbon::parse($this->updated_at)->format('Y-m-d H:i:s') : null,
         ];

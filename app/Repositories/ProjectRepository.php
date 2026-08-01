@@ -30,6 +30,7 @@ class ProjectRepository implements ProjectRepositoryInterface
     public function paginate(int $userId, int $perPage = 10): LengthAwarePaginator
     {
         return Project::query()
+            ->with('user')
             ->where('user_id', $userId)
             ->latest()
             ->paginate($perPage);
@@ -42,6 +43,7 @@ class ProjectRepository implements ProjectRepositoryInterface
     {
         /** @var Project|null */
         return Project::query()
+            ->with('user')
             ->where('user_id', $userId)
             ->where('id', $projectId)
             ->first();

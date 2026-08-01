@@ -32,7 +32,7 @@ class ProjectApiTest extends TestCase
                 'message',
                 'data' => [
                     'data' => [
-                        '*' => ['id', 'name', 'description', 'status', 'created_at', 'updated_at'],
+                        '*' => ['id', 'user_id', 'user_name', 'name', 'description', 'status', 'created_at', 'updated_at'],
                     ],
                     'meta' => ['current_page', 'per_page', 'total'],
                     'links' => ['first', 'last'],

@@ -4,17 +4,9 @@ namespace App\Repositories\Contracts;
 
 use App\Models\Project;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use Illuminate\Database\Eloquent\Collection;
 
 interface ProjectRepositoryInterface
 {
-    /**
-     * Get all projects belonging to a specific user.
-     *
-     * @return Collection<int, Project>
-     */
-    public function all(int $userId): Collection;
-
     /**
      * Get paginated projects belonging to a specific user.
      *
